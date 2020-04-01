@@ -1,5 +1,4 @@
 node_modules
-config
 package-lock.json
 public/css
 dist
@@ -9,3 +8,4 @@ cypress/support
 cypress.json
 cypress/screenshots
 cypress/videos 
+.env

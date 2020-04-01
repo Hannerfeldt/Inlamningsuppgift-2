@@ -1,18 +1,27 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const app = express()
+const path = require('path')
+const cookieParser = require("cookie-parser")
+
+const config = require('./config/config')
+if( process.env.NODE_ENV !=="production"){
+    require("dotenv").config()
+}
+
+const stripeKey = process.env.Stripe_Secret_key;
+const stripePublickey = process.env.Stripe_Public_key;
+
 const home = require('./router/home')
 const aboutus = require('./router/aboutus')
 const thankyou = require('./router/thankyou')
 const productPage = require('./router/productpage')
-const app = express()
-const config = require('./config/config')
 const user = require("./router/user")
-const path = require('path')
 const cart = require('./router/cart')
-const cookieParser = require("cookie-parser")
 const wishlist = require("./router/wishlist")
 const checkout = require("./router/checkout")
 const admin = require('./router/admin')
+
 app.use(cookieParser())
 
 app.use(express.urlencoded({
