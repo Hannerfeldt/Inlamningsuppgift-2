@@ -7,6 +7,7 @@
         <div class="col-12 col-lg-7 checkout-wrapper flex-column">
             <h5 class="pl-2 mt-5">Dina varor</h5>
             <div class="divider"></div>
+            <% console.log(sessionId) %>
             <% products.forEach( (product) => { %>
             <div class="row checkout-product-wrapper mt-3 mx-0 pb-3">
                 <div class="checkout-product-img-wrapper col-3 px-0">
@@ -70,8 +71,17 @@
                 <div class="btn-wrapper py-3 d-flex justify-content-end">
                     <div class="col-6 d-flex justify-content-between pl-0">
                         <button type="button" class="btn mr-1 w-50">Avbryt</button>
-                        <a href="/order"><button type="submit" class="btn continue btn-dark w-100 ml-1">Lägg din
-                                order</button></a>
+                        <button type="submit" id="buybutton" class="btn continue btn-dark w-100 ml-1">Lägg din
+                                order</button>
+                        <script src="https://js.stripe.com/v3/"></script>
+                        <script>
+                            var stripe = Stripe(process.env.Stripe_Public_key)
+                            document.querySelector('#buybutton').addEventListener("click", ()=>{
+                                stripe.redirectCheckout({
+                                    sessionId: "<%sessionId%>"
+                                })
+                            })
+                        </script>
                     </div>
                 </div>
             </form>

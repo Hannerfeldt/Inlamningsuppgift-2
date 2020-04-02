@@ -52,7 +52,10 @@ router.get("/cartAdd/:id", verifyToken, async (req, res) => {
     user = await User.findOne({
         _id: req.body.user._id
     })
-    await user.addToCart(req.params.id)
+    product = await Product.findOne({
+        _id: req.params.id
+    })
+    await user.addToCart(product)
 
     res.cookie("message", "Varan är tillagd i varukorgen", {
         maxAge: 3600000,

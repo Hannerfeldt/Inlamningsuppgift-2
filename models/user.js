@@ -44,6 +44,10 @@ const UserSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Product"
         },
+        name: {
+            type: String, 
+            require:true
+        },
         quantity: {
             type: Number,
             require: true
@@ -68,15 +72,22 @@ UserSchema.methods.addToWishList = function (productId) {
     return this.save()
 }
 
-UserSchema.methods.addToCart = function (productId) {
+UserSchema.methods.addToCart = function (product) {
+    
+    const foundItem = this.cart.find( (cartProduct)  => cartProduct.productId.toString() == product._id )
 
-    const foundItem = this.cart.find(product => product.productId == productId)
+         
 
-        !foundItem ? this.cart.push({
-            productId: productId,
-            quantity: 1
-        }) :
-        foundItem.quantity++
+    console.log(foundItem)
+
+    !foundItem ? this.cart.push({
+        productId: product._id,
+        name: product.name,
+        quantity: 1,
+        price: product.price,
+        imageUrl: product.imageUrl
+    }) :
+    foundItem.quantity++
 
     return this.save()
 }
