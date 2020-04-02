@@ -5,9 +5,7 @@ const path = require('path')
 const cookieParser = require("cookie-parser")
 
 const config = require('./config/config')
-if( process.env.NODE_ENV !=="production"){
-    require("dotenv").config()
-}
+
 
 const stripeKey = process.env.Stripe_Secret_key;
 const stripePublickey = process.env.Stripe_Public_key;

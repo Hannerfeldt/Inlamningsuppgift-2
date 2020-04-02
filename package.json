@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "webshop med mystiska saker",
   "main": "index.js",
+  "engines": {
+    "node": "v12.14.1"
+  },
   "scripts": {
     "start": "nodemon index.js",
     "sass": "node-sass --watch public/scss -o public/css",
