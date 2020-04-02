@@ -7,8 +7,8 @@ const cookieParser = require("cookie-parser")
 const config = require('./config/config')
 
 
-const stripeKey = process.env.Stripe_Secret_key;
-const stripePublickey = process.env.Stripe_Public_key;
+// const stripeKey = process.env.Stripe_Secret_key;
+// const stripePublickey = process.env.Stripe_Public_key;
 
 const home = require('./router/home')
 const aboutus = require('./router/aboutus')
