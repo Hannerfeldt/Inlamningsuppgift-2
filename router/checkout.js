@@ -32,7 +32,7 @@ router.get("/checkout", verifyToken, async (req, res) => {
                 currency:"sek"
             }
         }),
-        success_url:req.protocol + "://" + req.get("Host") + "/",
+        success_url:req.protocol + "://" + req.get("Host") + "/thankyou",
         cancel_url:req.protocol + "://" + req.get("Host") + "/cart"
 
     }).then( (session) => {

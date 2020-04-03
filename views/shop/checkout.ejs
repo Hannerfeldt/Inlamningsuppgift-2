@@ -66,13 +66,21 @@
                         <div class="form-group col-md-6 m-0 p-0">
                             <input type="text" class="form-control" id="inputPhone" placeholder="Telefonnummer">
                         </div>
+                        <div class="form-group col-md-12 m-0 p-0">
+                            <input type="number" class="form-control" id="inputCard" placeholder="Kortnummer">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="number" class="form-control" id="inputExpirationDate" placeholder="mm/yy">
+                        </div>
+                        <div class="form-group col-md-6 m-0 p-0">
+                            <input type="number" class="form-control" id="inputCVV" placeholder="cvv">
+                        </div>
                     </div>
                 </div>
                 <div class="btn-wrapper py-3 d-flex justify-content-end">
                     <div class="col-6 d-flex justify-content-between pl-0">
                         <button type="button" class="btn mr-1 w-50">Avbryt</button>
-                        <button type="submit" id="buybutton" class="btn continue btn-dark w-100 ml-1">Lägg din
-                                order</button>
+                        <button type="submit" id="buybutton" class="btn continue btn-dark w-100 ml-1">Lägg din order</button>
                         <script src="https://js.stripe.com/v3/"></script>
                         <script>
                             var stripe = Stripe(process.env.Stripe_Public_key)
